@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>YUKI LAHAYE — Social & Branding Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #f6f1ea;          /* warm ivory */
+    --bg-2: #efe7da;         /* deeper cream */
+    --bg-3: #1a1612;         /* espresso for contrast blocks */
+    --ink: #1a1612;
+    --ink-soft: #4a3f33;
+    --ink-dim: #8a7d6b;
+    --line: #d9cfbe;
+    --gold: #b89968;         /* champagne / soft gold */
+    --gold-deep: #8a6f43;
+    --blush: #e8c9b8;        /* warm blush */
+    --rose: #c98770;
+    --serif: "Fraunces", "Times New Roman", serif;
+    --sans: "Inter Tight", -apple-system, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(circle at 15% 5%, rgba(232, 201, 184, 0.45), transparent 45%),
+      radial-gradient(circle at 90% 80%, rgba(184, 153, 104, 0.18), transparent 50%);
+  }
+
+  /* subtle paper grain */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.06;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ========== NAV ========== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 22px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 50;
+    background: rgba(246, 241, 234, 0.78);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--line);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  nav .brand {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    text-transform: none;
+    color: var(--ink);
+  }
+  nav ul { display: flex; gap: 32px; list-style: none; }
+  nav ul a {
+    position: relative;
+    transition: color 0.3s;
+    color: var(--ink-soft);
+  }
+  nav ul a::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -4px;
+    width: 0; height: 1px;
+    background: var(--gold);
+    transition: width 0.3s;
+  }
+  nav ul a:hover { color: var(--ink); }
+  nav ul a:hover::after { width: 100%; }
+  nav .cta {
+    background: var(--ink);
+    color: var(--bg);
+    padding: 11px 20px;
+    border-radius: 999px;
+    letter-spacing: 0.15em;
+    transition: all 0.3s;
+  }
+  nav .cta:hover {
+    background: var(--gold);
+  }
+
+  @media (max-width: 820px) {
+    nav { padding: 16px 22px; }
+    nav ul { display: none; }
+    nav .brand { font-size: 18px; }
+  }
+
+  /* ========== HERO ========== */
+  .hero {
+    min-height: 100vh;
+    padding: 130px 36px 60px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .hero-meta .pill {
+    border: 1px solid var(--line);
+    padding: 7px 16px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.4);
+  }
+  .hero-meta .pill .dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    margin-right: 8px;
+    animation: glow 2.5s ease-in-out infinite;
+  }
+  @keyframes glow {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 200;
+    font-size: clamp(56px, 12vw, 200px);
+    line-height: 0.92;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+  }
+  .hero h1 .em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--gold-deep);
+  }
+  .hero h1 .underline {
+    position: relative;
+    display: inline-block;
+    font-style: italic;
+    font-weight: 300;
+  }
+  .hero h1 .underline::after {
+    content: "";
+    position: absolute;
+    left: 2%;
+    right: 2%;
+    bottom: 6%;
+    height: 3px;
+    background: var(--gold);
+    border-radius: 2px;
+  }
+
+  .hero-sub {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 80px;
+    align-items: end;
+  }
+  .hero-sub p {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 1.45;
+    color: var(--ink-soft);
+    max-width: 36ch;
+    font-style: italic;
+  }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    border-top: 1px solid var(--line);
+    padding-top: 28px;
+  }
+  .stat .num {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 56px;
+    line-height: 1;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+  .stat .num em { font-style: italic; color: var(--gold-deep); }
+  .stat .lbl {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-dim);
+    margin-top: 10px;
+  }
+
+  @media (max-width: 820px) {
+    .hero-sub { grid-template-columns: 1fr; gap: 40px; }
+    .stat .num { font-size: 40px; }
+  }
+
+  /* ========== TICKER ========== */
+  .ticker {
+    background: var(--bg-3);
+    color: var(--bg);
+    padding: 20px 0;
+    overflow: hidden;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .ticker-track {
+    display: flex;
+    gap: 70px;
+    white-space: nowrap;
+    animation: scroll 50s linear infinite;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 28px;
+    letter-spacing: -0.01em;
+  }
+  .ticker-track span {
+    display: inline-flex;
+    align-items: center;
+    gap: 70px;
+  }
+  .ticker-track .star {
+    color: var(--gold);
+    font-style: normal;
+    font-size: 16px;
+  }
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ========== SECTION SHELL ========== */
+  section.block {
+    padding: 110px 36px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--ink-dim);
+    margin-bottom: 50px;
+  }
+  .section-label .num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--gold-deep);
+    letter-spacing: -0.01em;
+    text-transform: lowercase;
+  }
+  .section-label .line {
+    flex: 1; height: 1px;
+    background: var(--line);
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-weight: 200;
+    font-size: clamp(44px, 7vw, 96px);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    max-width: 16ch;
+    margin-bottom: 70px;
+    color: var(--ink);
+  }
+  .section-title em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--gold-deep);
+  }
+
+  /* ========== PROBLEM CARDS ========== */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .problem-card {
+    background: var(--bg);
+    padding: 44px 38px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    transition: background 0.4s;
+  }
+  .problem-card:hover { background: var(--bg-2); }
+  .problem-card .head {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .problem-card .head .tag {
+    color: var(--gold-deep);
+    font-style: italic;
+    font-family: var(--serif);
+    text-transform: lowercase;
+    letter-spacing: 0;
+    font-size: 14px;
+  }
+  .problem-card h3 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 1.1;
+    color: var(--ink);
+    letter-spacing: -0.015em;
+  }
+  .problem-card h3 em { font-style: italic; color: var(--gold-deep); }
+  .problem-card p {
+    color: var(--ink-soft);
+    font-size: 14px;
+    line-height: 1.65;
+    max-width: 42ch;
+  }
+  @media (max-width: 820px) {
+    .problem-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ========== IMAGE PLACEHOLDER ========== */
+  .img-slot {
+    position: relative;
+    border: 1px solid var(--line);
+    background:
+      linear-gradient(135deg, var(--bg-2) 0%, var(--blush) 50%, var(--bg-2) 100%);
+    aspect-ratio: 4 / 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 28px;
+    overflow: hidden;
+    transition: transform 0.5s ease;
+  }
+  .img-slot:hover { transform: translateY(-4px); }
+  .img-slot::before {
+    content: "";
+    position: absolute;
+    inset: 14px;
+    border: 1px solid rgba(184, 153, 104, 0.4);
+    pointer-events: none;
+  }
+  .img-slot::after {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 60%; aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    background:
+      radial-gradient(circle, rgba(255,255,255,0.5), transparent 70%);
+    pointer-events: none;
+  }
+  .img-slot .top, .img-slot .bot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    z-index: 2;
+  }
+  .img-slot .center {
+    text-align: center;
+    z-index: 2;
+  }
+  .img-slot .center .label {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 26px;
+    color: var(--gold-deep);
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .img-slot .center .desc {
+    font-size: 11px;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    max-width: 30ch;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* ========== SERVICES ========== */
+  .services {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .services-img { position: sticky; top: 110px; }
+
+  .services-list {
+    display: flex;
+    flex-direction: column;
+  }
+  .service-item {
+    border-top: 1px solid var(--line);
+    padding: 36px 0;
+    display: grid;
+    grid-template-columns: 70px 1fr auto;
+    gap: 24px;
+    align-items: start;
+    cursor: pointer;
+    transition: padding 0.4s;
+  }
+  .service-item:hover { padding-left: 18px; }
+  .service-item:last-child { border-bottom: 1px solid var(--line); }
+  .service-item .num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 28px;
+    color: var(--gold-deep);
+    padding-top: 6px;
+  }
+  .service-item h4 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 1.1;
+    margin-bottom: 12px;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+  .service-item h4 em { font-style: italic; color: var(--gold-deep); }
+  .service-item p {
+    color: var(--ink-soft);
+    font-size: 14px;
+    line-height: 1.65;
+    max-width: 52ch;
+  }
+  .service-item .arrow {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 32px;
+    color: var(--ink-dim);
+    transition: transform 0.4s, color 0.4s;
+    line-height: 1;
+  }
+  .service-item:hover .arrow {
+    transform: translateX(10px);
+    color: var(--gold-deep);
+  }
+  @media (max-width: 920px) {
+    .services { grid-template-columns: 1fr; gap: 50px; }
+    .services-img { position: relative; top: 0; }
+  }
+
+  /* ========== PROCESS ========== */
+  .process {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .process-step {
+    background: var(--bg);
+    padding: 50px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-height: 400px;
+    transition: background 0.4s;
+  }
+  .process-step:hover { background: var(--bg-2); }
+  .process-step .step-num {
+    font-family: var(--serif);
+    font-weight: 200;
+    font-style: italic;
+    font-size: 110px;
+    line-height: 0.9;
+    color: var(--gold);
+    letter-spacing: -0.05em;
+  }
+  .process-step .week {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--ink-dim);
+  }
+  .process-step h4 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 1.15;
+    color: var(--ink);
+    letter-spacing: -0.015em;
+  }
+  .process-step h4 em { font-style: italic; color: var(--gold-deep); }
+  .process-step p {
+    color: var(--ink-soft);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-top: auto;
+  }
+  @media (max-width: 920px) {
+    .process { grid-template-columns: 1fr; }
+  }
+
+  /* ========== ABOUT ========== */
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .about-text h2 {
+    font-family: var(--serif);
+    font-weight: 200;
+    font-size: clamp(40px, 5.5vw, 72px);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    margin-bottom: 32px;
+  }
+  .about-text h2 em { font-style: italic; color: var(--gold-deep); }
+  .about-text p {
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.75;
+    margin-bottom: 18px;
+  }
+  .about-text p.dim { color: var(--ink-soft); }
+  .about-quote {
+    border-left: 2px solid var(--gold);
+    padding-left: 24px;
+    margin-top: 36px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 1.45;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .about-meta {
+    display: flex;
+    gap: 36px;
+    margin-top: 44px;
+    flex-wrap: wrap;
+  }
+  .about-meta .item .k {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--ink-dim);
+    margin-bottom: 8px;
+  }
+  .about-meta .item .v {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--ink);
+  }
+  @media (max-width: 920px) {
+    .about { grid-template-columns: 1fr; gap: 50px; }
+  }
+
+  /* ========== WORK GRID ========== */
+  .work-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .work-grid .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  @media (max-width: 760px) {
+    .work-grid .row { grid-template-columns: 1fr; }
+  }
+
+  /* ========== PRICING ========== */
+  .pricing {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .price-card {
+    background: var(--bg);
+    padding: 48px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    position: relative;
+    transition: background 0.4s;
+  }
+  .price-card:hover { background: var(--bg-2); }
+  .price-card.feat {
+    background: var(--bg-3);
+    color: var(--bg);
+  }
+  .price-card.feat:hover { background: var(--bg-3); }
+  .price-card.feat::before {
+    content: "Most picked";
+    position: absolute;
+    top: 22px; right: 22px;
+    background: var(--gold);
+    color: var(--bg-3);
+    padding: 6px 14px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 12px;
+    border-radius: 999px;
+    letter-spacing: -0.01em;
+  }
+  .price-card .tier {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--ink-dim);
+  }
+  .price-card.feat .tier { color: var(--gold); }
+  .price-card .tier .n {
+    font-family: var(--serif);
+    font-style: italic;
+    text-transform: lowercase;
+    letter-spacing: -0.01em;
+    font-size: 14px;
+    color: var(--gold-deep);
+  }
+  .price-card.feat .tier .n { color: var(--gold); }
+  .price-card h3 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 38px;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+  .price-card h3 em { font-style: italic; color: var(--gold-deep); }
+  .price-card.feat h3 em { color: var(--gold); }
+  .price-card .desc {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+  .price-card.feat .desc { color: rgba(246, 241, 234, 0.7); }
+  .price-card .amt {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 64px;
+    line-height: 1;
+    color: var(--ink);
+    letter-spacing: -0.025em;
+    margin-top: auto;
+  }
+  .price-card.feat .amt { color: var(--bg); }
+  .price-card .amt small {
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--ink-dim);
+    display: block;
+    margin-top: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .price-card.feat .amt small { color: rgba(246, 241, 234, 0.5); }
+  .price-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 18px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+  }
+  .price-card.feat ul { border-top-color: rgba(246, 241, 234, 0.15); }
+  .price-card li {
+    font-size: 14px;
+    color: var(--ink);
+    padding-left: 22px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .price-card.feat li { color: var(--bg); }
+  .price-card li::before {
+    content: "✦";
+    position: absolute;
+    left: 0;
+    color: var(--gold-deep);
+    font-size: 12px;
+    top: 2px;
+  }
+  .price-card.feat li::before { color: var(--gold); }
+  .price-card .btn {
+    margin-top: 18px;
+    padding: 16px 24px;
+    text-align: center;
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: 999px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    transition: all 0.3s;
+    font-weight: 500;
+  }
+  .price-card .btn:hover { background: var(--gold-deep); }
+  .price-card.feat .btn {
+    background: var(--gold);
+    color: var(--bg-3);
+  }
+  .price-card.feat .btn:hover { background: var(--bg); color: var(--bg-3); }
+
+  @media (max-width: 920px) {
+    .pricing { grid-template-columns: 1fr; }
+  }
+
+  /* ========== FAQ ========== */
+  .faq-list {
+    border-top: 1px solid var(--line);
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+    padding: 32px 0;
+    cursor: pointer;
+  }
+  .faq-q {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
+  .faq-q .q-num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--gold-deep);
+    flex-shrink: 0;
+    width: 36px;
+  }
+  .faq-q .q-text {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 26px;
+    line-height: 1.2;
+    flex: 1;
+    letter-spacing: -0.015em;
+  }
+  .faq-q .q-text em { font-style: italic; color: var(--gold-deep); }
+  .faq-q .toggle {
+    width: 42px; height: 42px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 20px;
+    font-family: var(--serif);
+    font-weight: 300;
+    transition: all 0.4s;
+    background: rgba(255,255,255,0.4);
+  }
+  .faq-item.open .faq-q .toggle {
+    background: var(--ink);
+    color: var(--bg);
+    border-color: var(--ink);
+    transform: rotate(45deg);
+  }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    color: var(--ink-soft);
+    font-size: 15px;
+    line-height: 1.75;
+    transition: max-height 0.4s ease, padding 0.3s;
+    padding-top: 0;
+    padding-left: 36px;
+  }
+  .faq-item.open .faq-a {
+    max-height: 320px;
+    padding-top: 20px;
+  }
+
+  /* ========== CTA ========== */
+  .cta-block {
+    padding: 140px 36px;
+    text-align: center;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse at 50% 60%, rgba(232, 201, 184, 0.5), transparent 60%),
+      var(--bg);
+  }
+  .cta-block .label {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--gold-deep);
+    margin-bottom: 28px;
+    letter-spacing: -0.01em;
+  }
+  .cta-block h2 {
+    font-family: var(--serif);
+    font-weight: 200;
+    font-size: clamp(48px, 9vw, 140px);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    margin-bottom: 50px;
+  }
+  .cta-block h2 em { font-style: italic; color: var(--gold-deep); }
+  .cta-block .big-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--ink);
+    color: var(--bg);
+    padding: 22px 42px;
+    border-radius: 999px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    transition: all 0.3s;
+  }
+  .cta-block .big-btn:hover {
+    background: var(--gold-deep);
+    transform: scale(1.04);
+  }
+  .cta-block .micro {
+    margin-top: 28px;
+    font-size: 11px;
+    color: var(--ink-dim);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  /* ========== FOOTER ========== */
+  footer {
+    padding: 70px 36px 32px;
+    background: var(--bg-3);
+    color: rgba(246, 241, 234, 0.7);
+    font-size: 13px;
+  }
+  footer .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 50px;
+    border-bottom: 1px solid rgba(246, 241, 234, 0.1);
+    padding-bottom: 50px;
+    margin-bottom: 28px;
+  }
+  footer h5 {
+    color: var(--bg);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 11px;
+    font-weight: 500;
+    margin-bottom: 18px;
+  }
+  footer ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  footer ul a:hover { color: var(--gold); }
+  footer .signature {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 42px;
+    color: var(--bg);
+    letter-spacing: -0.02em;
+  }
+  footer .signature em { color: var(--gold); }
+  footer .footer-bot {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 10px;
+  }
+  footer .footer-bot .status .dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    margin-right: 8px;
+    animation: glow 2.5s infinite;
+  }
+  @media (max-width: 760px) {
+    footer .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+  }
+
+  /* fade-in on scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  .reveal.in { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- ========== NAV ========== -->
+<nav>
+  <div class="brand">Yuki Lahaye</div>
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#contact" class="cta">Book a call</a>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="hero-meta">
+    <div class="pill"><span class="dot"></span>Now booking · Q3 2026</div>
+    <div>Rotterdam × Worldwide / Est. 2024</div>
+    <div>Social Media & Branding Studio</div>
+  </div>
+
+  <h1>
+    Brands worth<br />
+    <span class="em">slowing down</span> for.<br />
+    <span class="underline">Soft on the eye.</span><br />
+    Sharp on the strategy.
+  </h1>
+
+  <div class="hero-sub">
+    <p>
+      A small, considered studio for founders who want their brand to feel as
+      thoughtful as the work they do — and a feed that quietly turns followers
+      into clients.
+    </p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="num"><em>+312</em>%</div>
+        <div class="lbl">Avg. reach lift</div>
+      </div>
+      <div class="stat">
+        <div class="num">90<em>d</em></div>
+        <div class="lbl">Brand → Live</div>
+      </div>
+      <div class="stat">
+        <div class="num">1:<em>1</em></div>
+        <div class="lbl">Always with Yuki</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TICKER ========== -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>Branding <span class="star">✦</span> Social media strategy <span class="star">✦</span> Content that feels like you <span class="star">✦</span> Community building <span class="star">✦</span> Identity systems <span class="star">✦</span> Rotterdam × Worldwide <span class="star">✦</span></span>
+    <span>Branding <span class="star">✦</span> Social media strategy <span class="star">✦</span> Content that feels like you <span class="star">✦</span> Community building <span class="star">✦</span> Identity systems <span class="star">✦</span> Rotterdam × Worldwide <span class="star">✦</span></span>
+  </div>
+</div>
+
+<!-- ========== PROBLEM ========== -->
+<section class="block reveal" id="problem">
+  <div class="section-label">
+    <span class="num">i.</span>
+    The Reason We're Here
+    <span class="line"></span>
+    <span>Where Most Brands Get Stuck</span>
+  </div>
+  <h2 class="section-title">You're posting. Nothing is <em>landing</em>.</h2>
+
+  <div class="problem-grid">
+    <div class="problem-card">
+      <div class="head"><span>01 / Identity</span><span class="tag">— soft drift</span></div>
+      <h3>Your brand looks <em>familiar</em>. Not memorable.</h3>
+      <p>Same fonts, the same neutral palette everyone reaches for, the same "minimal" feed. Quietly blending into a feed designed to skip you. Beautiful brands choose a side — yours hasn't yet.</p>
+    </div>
+    <div class="problem-card">
+      <div class="head"><span>02 / Content</span><span class="tag">— quietly stalling</span></div>
+      <h3>Posting consistently. Going <em>nowhere</em>.</h3>
+      <p>You're treating content like a checklist instead of a story. No hooks, no rhythm, no point of view — just three reels a week and a vague hope the algorithm rewards you. It rarely does.</p>
+    </div>
+    <div class="problem-card">
+      <div class="head"><span>03 / Strategy</span><span class="tag">— without a compass</span></div>
+      <h3>No idea who you're <em>really</em> talking to.</h3>
+      <p>"Women, 25 to 45" isn't an audience, it's a guess. Without a sharp ideal client every caption gets watered down to please nobody and convert nobody.</p>
+    </div>
+    <div class="problem-card">
+      <div class="head"><span>04 / Time</span><span class="tag">— quietly draining you</span></div>
+      <h3>The work is eating your <em>weekends</em>.</h3>
+      <p>You started the business to do the thing you're great at. Now you spend Sunday nights writing captions, batching reels, and second-guessing your hashtags. That isn't growth, that's exhaustion.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SERVICES ========== -->
+<section class="block reveal" id="services">
+  <div class="section-label">
+    <span class="num">ii.</span>
+    What I Build
+    <span class="line"></span>
+    <span>Four Pillars / One System</span>
+  </div>
+  <h2 class="section-title">Not a content calendar. A <em>brand world</em>.</h2>
+
+  <div class="services">
+    <div class="services-img">
+     <!-- IMG 01 — services pillar visual -->
+<div class="img-slot" style="aspect-ratio: 3/4; padding: 0; background: none; border: none;">
+  <img src="img-001.png" alt="Luxury brand identity sculpture in champagne and cream tones"
+       style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+</div>
+    </div>
+
+    <div class="services-list">
+      <div class="service-item">
+        <div class="num">i.</div>
+        <div>
+          <h4>Brand <em>identity</em> & strategy</h4>
+          <p>Brand map, voice, visual system, positioning. We define who you serve, what you stand for, and the look that makes you instantly recognizable on a small screen — without losing any softness.</p>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="service-item">
+        <div class="num">ii.</div>
+        <div>
+          <h4>Social media <em>strategy</em></h4>
+          <p>A platform-by-platform plan made for your business, not for trends. Content pillars, posting cadence, hook frameworks, hashtag systems — built around your goals, not the vanity metrics.</p>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="service-item">
+        <div class="num">iii.</div>
+        <div>
+          <h4>Content <em>production</em></h4>
+          <p>Reels, carousels, captions, stories — produced or art-directed monthly. Soft, considered, intentional. Designed to slow the scroll, build trust, and gently move people from viewer to client.</p>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="service-item">
+        <div class="num">iv.</div>
+        <div>
+          <h4>Community & <em>growth</em></h4>
+          <p>DM strategy, engagement loops, collab outreach, UGC pipelines. Followers are vanity. A community that buys, refers, and shows up — that's the real asset.</p>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PROCESS ========== -->
+<section class="block reveal" id="process">
+  <div class="section-label">
+    <span class="num">iii.</span>
+    The Process
+    <span class="line"></span>
+    <span>Three Phases / Ninety Days</span>
+  </div>
+  <h2 class="section-title">Strategy. Build. <em>Launch</em>.</h2>
+
+  <div class="process">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <div class="week">Weeks one to two</div>
+      <h4>Discovery & <em>brand mapping</em></h4>
+      <p>We dig into your business, audience, competitors, and goals over slow conversations and detailed worksheets. You leave with a brand map, positioning statement, and the answer to the one question most brands skip: who is this for, exactly?</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <div class="week">Weeks three to eight</div>
+      <h4>Build & <em>produce</em></h4>
+      <p>Visual system, voice guide, content pillars, the first 90 days of content, and the operational backbone — templates, workflows, approval loops. Built so your team (or future team) can run it gracefully without you.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <div class="week">Weeks nine to twelve</div>
+      <h4>Launch & <em>refine</em></h4>
+      <p>We go live, watch what's working, and iterate carefully. Weekly reviews, monthly reports, a feedback loop that turns the first 90 days of data into the next 90 days of compounding, calmer growth.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section class="block reveal" id="about">
+  <div class="section-label">
+    <span class="num">iv.</span>
+    About
+    <span class="line"></span>
+    <span>Who is building this</span>
+  </div>
+
+  <div class="about">
+   <!-- IMG 02 — Yuki portrait -->
+<div class="img-slot" style="aspect-ratio: 3/4; padding: 0; background: none; border: none;">
+  <img src="img-002.png" alt="Yuki Lahaye, founder of Yuki Lahaye Social Media & Branding Studio"
+       style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+</div>
+
+    <div class="about-text">
+      <h2>Hi, I'm <em>Yuki</em>.<br />Branding is my love language.</h2>
+      <p>
+        I run a small, considered social media & branding studio out of Rotterdam.
+        I don't sell templates or "ten-times growth hacks." I build brands that actually
+        mean something — to the women running them, and to the people they want to reach.
+      </p>
+      <p class="dim">
+        I work with founders, coaches, and small teams who are great at what they do
+        but are tired of looking like everyone else online. We build the strategy, the
+        system, and the look — then I get out of the way so the brand can grow,
+        gracefully.
+      </p>
+
+      <div class="about-quote">
+        "Most brands shout. Few feel. Feeling is what makes someone stop, read, and remember."
+      </div>
+
+      <div class="about-meta">
+        <div class="item"><div class="k">Based in</div><div class="v">Rotterdam, NL</div></div>
+        <div class="item"><div class="k">Working with</div><div class="v">Founders & SMEs</div></div>
+        <div class="item"><div class="k">Studio est.</div><div class="v">2024</div></div>
+        <div class="item"><div class="k">Languages</div><div class="v">EN · NL</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== WORK ========== -->
+<section class="block reveal" id="work">
+  <div class="section-label">
+    <span class="num">v.</span>
+    Selected Work
+    <span class="line"></span>
+    <span>Recent Builds</span>
+  </div>
+  <h2 class="section-title">Brands I've helped <em>find their voice</em>.</h2>
+
+  <div class="work-grid">
+  <!-- IMG 03 — featured strategy video loop -->
+<div class="img-slot" style="aspect-ratio: 16/9; padding: 0; background: none; border: none;">
+  <video src="img-003.mp4"
+         autoplay loop muted playsinline
+         style="width: 100%; height: 100%; object-fit: cover; display: block;">
+  </video>
+</div>
+
+    <div class="row">
+      <!-- 3D IMAGE PLACEHOLDER 04 -->
+      <div class="img-slot" style="aspect-ratio: 1/1;">
+        <div class="top">
+          <span>img — 004</span>
+          <span>3D / case study</span>
+        </div>
+        <div class="center">
+          <div class="label">secondary case</div>
+          <div class="desc">square · 1:1<br />smaller hero piece</div>
+        </div>
+        <div class="bot">
+          <span>ratio 1:1</span>
+          <span>~1500 × 1500</span>
+        </div>
+      </div>
+
+      <!-- 3D IMAGE PLACEHOLDER 05 -->
+      <div class="img-slot" style="aspect-ratio: 1/1;">
+        <div class="top">
+          <span>img — 005</span>
+          <span>3D / case study</span>
+        </div>
+        <div class="center">
+          <div class="label">secondary case</div>
+          <div class="desc">square · 1:1<br />smaller hero piece</div>
+        </div>
+        <div class="bot">
+          <span>ratio 1:1</span>
+          <span>~1500 × 1500</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PRICING ========== -->
+<section class="block reveal" id="pricing">
+  <div class="section-label">
+    <span class="num">vi.</span>
+    Packages
+    <span class="line"></span>
+    <span>Three Ways To Work Together</span>
+  </div>
+  <h2 class="section-title">One studio. Three <em>ways in</em>.</h2>
+
+  <div class="pricing">
+    <div class="price-card">
+      <div class="tier"><span class="n">tier i.</span> · Starter</div>
+      <h3>Brand <em>sprint</em></h3>
+      <div class="desc">Identity & strategy in two careful weeks. The clarity baseline every brand should start with.</div>
+      <div class="amt">€1.450<small>One-time · 14 days</small></div>
+      <ul>
+        <li>Brand map & positioning</li>
+        <li>Voice & tone guide</li>
+        <li>Visual direction (mood, palette, type)</li>
+        <li>Audience & competitor audit</li>
+        <li>30-day content roadmap</li>
+      </ul>
+      <a href="#contact" class="btn">Book the sprint</a>
+    </div>
+
+    <div class="price-card feat">
+      <div class="tier"><span class="n">tier ii.</span> · Most picked</div>
+      <h3>Social <em>engine</em></h3>
+      <div class="desc">Strategy, identity, and 90 days of done-for-you content. Your brand goes from quiet to compounding.</div>
+      <div class="amt">€3.950<small>One-time · 90 days</small></div>
+      <ul>
+        <li>Everything in Brand Sprint</li>
+        <li>Full visual identity system</li>
+        <li>Content pillars + post templates</li>
+        <li>90 days of content (reels, carousels, captions)</li>
+        <li>Weekly review calls</li>
+        <li>Hashtag & growth playbook</li>
+      </ul>
+      <a href="#contact" class="btn">Build my engine</a>
+    </div>
+
+    <div class="price-card">
+      <div class="tier"><span class="n">tier iii.</span> · Retainer</div>
+      <h3>Studio <em>partner</em></h3>
+      <div class="desc">Ongoing monthly partnership. I run the brand layer so you can run the business.</div>
+      <div class="amt">€1.950<small>Per month · ongoing</small></div>
+      <ul>
+        <li>Monthly content production</li>
+        <li>Strategy + iteration calls (2/mo)</li>
+        <li>Performance reporting</li>
+        <li>Community & DM management</li>
+        <li>Priority Slack/WhatsApp access</li>
+      </ul>
+      <a href="#contact" class="btn">Become a partner</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section class="block reveal" id="faq">
+  <div class="section-label">
+    <span class="num">vii.</span>
+    FAQ
+    <span class="line"></span>
+    <span>Everything Else</span>
+  </div>
+  <h2 class="section-title">The <em>questions</em> people actually ask.</h2>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="q-num">i.</span>
+        <span class="q-text">Why not just hire a content creator on <em>Fiverr</em>?</span>
+        <span class="toggle">+</span>
+      </div>
+      <div class="faq-a">You can. They'll make pretty posts. They won't fix the underlying brand strategy, audience clarity, or system that turns content into clients. I do all of it together — because aesthetics without strategy is just expensive decoration.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="q-num">ii.</span>
+        <span class="q-text">How fast will I see <em>results</em>?</span>
+        <span class="toggle">+</span>
+      </div>
+      <div class="faq-a">Honest answer — week 4 onward. Weeks 1–3 we're building the foundation. From week 4 you'll feel the shift in clarity, voice, and visual quality. Real growth signals (saves, DMs, leads) typically show by day 60–90 if you stay consistent.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="q-num">iii.</span>
+        <span class="q-text">Do you guarantee <em>follower growth</em>?</span>
+        <span class="toggle">+</span>
+      </div>
+      <div class="faq-a">No. Anyone who guarantees follower counts is either selling you bots or selling you hopium. I guarantee a clear brand, a working content system, and the strategic foundation that makes growth possible. The algorithm and your consistency do the rest.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="q-num">iv.</span>
+        <span class="q-text">Which <em>platforms</em> do you cover?</span>
+        <span class="toggle">+</span>
+      </div>
+      <div class="faq-a">Mainly Instagram, TikTok, and LinkedIn — that's where 95% of my clients live. I'll also help with YouTube Shorts and Pinterest if it fits the strategy. I won't spread you across seven platforms. Two done well beats five done badly.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="q-num">v.</span>
+        <span class="q-text">Can you work with brands <em>outside</em> the Netherlands?</span>
+        <span class="toggle">+</span>
+      </div>
+      <div class="faq-a">Yes. I'm based in Rotterdam but work in EN with clients across the EU, UK, and US. Calls happen on Zoom, async work on Slack/Notion. Time zones haven't been a problem yet.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="q-num">vi.</span>
+        <span class="q-text">What if I already have a <em>brand identity</em>?</span>
+        <span class="toggle">+</span>
+      </div>
+      <div class="faq-a">Even better. We'll audit it, sharpen what works, and rebuild what doesn't. Most "existing" brand identities are a logo and a vibe — not a system. The Social Engine package adapts to whatever foundation is already there.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section class="cta-block" id="contact">
+  <div class="label">Ready when you are</div>
+  <h2>Let's build a brand<br />that's <em>impossible</em> to scroll past.</h2>
+  <a href="mailto:hello@yukilahaye.nl" class="big-btn">Book a discovery call →</a>
+  <div class="micro">2 spots open · Q3 2026 · response within 24h</div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="signature">Yuki <em>Lahaye</em></div>
+      <p style="margin-top: 14px; max-width: 38ch;">Social media & branding studio.<br />Built in Rotterdam. Working worldwide.</p>
+    </div>
+    <div>
+      <h5>Studio</h5>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Resources</h5>
+      <ul>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Brand map guide</a></li>
+        <li><a href="#">Newsletter</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Connect</h5>
+      <ul>
+        <li><a href="https://www.instagram.com/yuki.lahaye/">Instagram</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="mailto:hello@yukilahaye.nl">hello@yukilahaye.nl</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <div>© 2026 Yuki Lahaye Social Media Consultancy · KVK 93392508</div>
+    <div class="status"><span class="dot"></span>Studio status: accepting Q3</div>
+    <div>Terms · Privacy · Imprint</div>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('click', () => {
+      item.classList.toggle('open');
+    });
+  });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
